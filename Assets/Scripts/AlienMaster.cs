@@ -5,12 +5,12 @@ using UnityEngine;
 public class AlienMaster : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    private Vector3 horizontalMoveDistanece = new Vector3(0, 0, 0);
-    private Vector3 verticalMoveDistance = new Vector3(0, 0, 0);
+    private Vector3 horizontalMoveDistanece = new Vector3(0.05f, 0, 0);
+    private Vector3 verticalMoveDistance = new Vector3(0, 0.15f, 0);
     private const float MAX_LEFT = -2f;
     private const float MAX_RIGHT = 2f;
     private const float MAX_MOVE_SPEED = 0.02F;
-    public List<GameObject> allAliens = new List<GameObject>(); //Bütün alienlarý bvir listede tutacaðýz
+    private List<GameObject> allAliens = new List<GameObject>(); //Bütün alienlarý bvir listede tutacaðýz
     private bool moveingRight;
     private float moveTimer = 0.01f;
     private float moveTime = 0.005f;
@@ -55,6 +55,7 @@ public class AlienMaster : MonoBehaviour
             {
                 allAliens[i].transform.position -= verticalMoveDistance;
             }
+            moveingRight = !moveingRight;
         }
         moveTimer=GetMovedSpeed();
     }
