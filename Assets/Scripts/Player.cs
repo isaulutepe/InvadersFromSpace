@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     bool isShoting;
     float coolDown = 0.5f;
 
+    [SerializeField] private ObjectPool objectPool=null;
     private void Awake()
     {
         cam = Camera.main;
@@ -43,7 +44,9 @@ public class Player : MonoBehaviour
     private IEnumerator Shoot()
     {
         isShoting = true;
-        Instantiate(bulletPrefab, transform.position, Quaternion.identity); //Açýsal bir deðiþiklik olmadýgý için oldugu gibi burada oluþacaðýndan Quanternþon Ýdentity kullandýk.
+        //  Instantiate(bulletPrefab, transform.position, Quaternion.identity); //Açýsal bir deðiþiklik olmadýgý için oldugu gibi burada oluþacaðýndan Quanternþon Ýdentity kullandýk.
+        GameObject obj = objectPool.GetPollObject();
+        obj.transform.position = gameObject.transform.position;
         yield return new WaitForSeconds(coolDown); //Ateþ etmek için belli bir süre beklemesini istiyoruz sonra devam edebilir hale gelecektir
         isShoting = false;
     }

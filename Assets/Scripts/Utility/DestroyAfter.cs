@@ -9,6 +9,13 @@ public class DestroyAfter : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject,destroyTime);
+       // Destroy(gameObject,destroyTime);
+    }
+    private void Update()
+    {
+        if (transform.position.y> 7f)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
