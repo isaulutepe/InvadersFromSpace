@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Alien : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public int scoreValue;
+    public GameObject explotions;
+    [SerializeField] private ObjectPool pool = null;
+
+
+    public void Kill()
     {
-        
+
+        AlienMaster.allAliens.Remove(gameObject);
+        Instantiate(explotions, transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

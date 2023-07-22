@@ -152,3 +152,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 9122729241013044305, guid: 14519dfe12b1a2749a39d0719d81fa27, type: 3}
+  width: 0
+  objectPool: {fileID: 0}

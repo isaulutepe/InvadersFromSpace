@@ -2479,12 +2479,12 @@ GameObject:
   - component: {fileID: 2114531135}
   - component: {fileID: 2114531134}
   m_Layer: 0
-  m_Name: ObjectPool
+  m_Name: MOtherShipPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2114531134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2497,8 +2497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c751ee33232e3014d976cc268fb4dae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 9122729241013044305, guid: 14519dfe12b1a2749a39d0719d81fa27, type: 3}
-  poolSize: 5
+  objectPrefab: {fileID: 5656105815310399521, guid: 644c46aab655e4245b56b6fbf47b49ec, type: 3}
+  poolSize: 1
 --- !u!4 &2114531135
 Transform:
   m_ObjectHideFlags: 0
@@ -2545,8 +2545,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 2147215948}
+  motherShippool: {fileID: 2114531134}
   bulletPrefab: {fileID: 5826832153262903664, guid: 07b4c2faf3e5c1540a11032851fa650f, type: 3}
   playerScript: {fileID: 340764115}
+  motherShipPrefab: {fileID: 5656105815310399521, guid: 644c46aab655e4245b56b6fbf47b49ec, type: 3}
 --- !u!4 &2147215947
 Transform:
   m_ObjectHideFlags: 0
