@@ -1,22 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AlienMaster : MonoBehaviour
 {
+    [SerializeField] private ObjectPool pool = null;
     public GameObject bulletPrefab;
     private Vector3 horizontalMoveDistanece = new Vector3(0.05f, 0, 0);
     private Vector3 verticalMoveDistance = new Vector3(0, 0.15f, 0);
-    private const float MAX_LEFT = -2f;
-    private const float MAX_RIGHT = 2f;
+    [SerializeField] private Player playerScript;
+    private float width;
+    //private const float MAX_LEFT = -2f;
+    //private const float MAX_RIGHT = 2f;
     private const float MAX_MOVE_SPEED = 0.02F;
     private List<GameObject> allAliens = new List<GameObject>(); //Bütün alienlarý bvir listede tutacaðýz
     private bool moveingRight;
     private float moveTimer = 0.01f;
     private float moveTime = 0.005f;
+    private float ShootTimer = 3f;
+    private const float shotTime = 3f;
 
     private void Start()
     {
+        width = playerScript.width - 0.15f;
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Alien"))
         {
             allAliens.Add(obj);
@@ -28,8 +36,22 @@ public class AlienMaster : MonoBehaviour
         {
             MoveEnemies();
         }
+        if (ShootTimer <= 0)
+        {
+            Shoot();
+        }
         moveTimer -= Time.deltaTime;
+        ShootTimer -= Time.deltaTime; 
     }
+
+    private void Shoot()
+    {
+        Vector2 pos = allAliens[UnityEngine.Random.Range(0,allAliens.Count)].transform.position;
+        GameObject obh = pool.GetPollObject();
+        obh.transform.position = pos;
+        ShootTimer = shotTime;
+    }
+
     public void MoveEnemies()
     {
         int hitMax = 0;
@@ -44,7 +66,7 @@ public class AlienMaster : MonoBehaviour
             {
                 allAliens[i].transform.position -= horizontalMoveDistanece;
             }
-            if (allAliens[i].transform.position.x > MAX_RIGHT || allAliens[i].transform.position.x < MAX_LEFT)
+            if (allAliens[i].transform.position.x > width || allAliens[i].transform.position.x < -width)
             {
                 hitMax++;
             }
@@ -57,12 +79,12 @@ public class AlienMaster : MonoBehaviour
             }
             moveingRight = !moveingRight;
         }
-        moveTimer=GetMovedSpeed();
+        moveTimer = GetMovedSpeed();
     }
     private float GetMovedSpeed()
     {
         float f = allAliens.Count * moveTime;
-        if (f <MAX_MOVE_SPEED)
+        if (f < MAX_MOVE_SPEED)
         {
             return MAX_MOVE_SPEED;
         }
