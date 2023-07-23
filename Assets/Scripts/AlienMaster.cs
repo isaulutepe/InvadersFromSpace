@@ -24,7 +24,7 @@ public class AlienMaster : MonoBehaviour
     private const float shotTime = 3f;
 
     public GameObject motherShipPrefab;
-    private Vector3 MOtherShipSpawnPosition = new Vector3(6, 6.5f, 0);
+    private Vector3 MOtherShipSpawnPosition = new Vector3(6, 5f, 0);
     private float MotherShipTimer =60f;
     private const float MotherShipMinTime = 15f;
     private const float MotherShipMaxTime = 60f;

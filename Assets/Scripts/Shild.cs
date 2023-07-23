@@ -27,7 +27,7 @@ public class Shild : MonoBehaviour
             else
             {
                 spriteRenderer.sprite = states[health - 1];
-            }
+             }
         }
     }
 }

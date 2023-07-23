@@ -18,8 +18,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private ObjectPool objectPool = null;
     public Ship ShipStats;
-    private Vector2 offScreanPos = new Vector2(0, -20);
-    private Vector2 startPos = new Vector2(0, -6);
+    private Vector2 offScreanPos = new Vector2(0, -20f);
+    private Vector2 startPos = new Vector2(0, -6.5f);
 
     private void Awake()
     {
