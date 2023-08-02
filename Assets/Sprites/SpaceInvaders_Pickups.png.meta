@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98d8fc404c174934982ef3f678c48fbb
+guid: b9cd98a50833165478d7dd9623608131
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,6 +113,30 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -125,14 +149,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2671d3a0986d1f4aa7fd1edadaa8d74
-      internalID: -1976282749
+      spriteID: ceeceea9890bc364e94331ee0f38474b
+      internalID: 817596402
       vertices: []
       indices: 
       edges: []
@@ -146,14 +170,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 680894d0cac8b844c88325defdad91c9
-      internalID: -876929503
+      spriteID: 8a2de13f34a90974b8e02d5463f5ea9c
+      internalID: 428582466
       vertices: []
       indices: 
       edges: []
@@ -167,14 +191,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38d034d87629e4942a7770c6f6a22038
-      internalID: -1207163371
+      spriteID: 4edd0a558caf5a547ad81a99a37cd89f
+      internalID: 1254580021
       vertices: []
       indices: 
       edges: []
@@ -188,14 +212,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fab4dec86efebd40b741335a2a66c6b
-      internalID: -595199230
+      spriteID: b215b66bdda555a4482626345c678589
+      internalID: 1658394931
       vertices: []
       indices: 
       edges: []
@@ -209,14 +233,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85f05c8d86057d74b8e12e937d1ba44c
-      internalID: 768267208
+      spriteID: 1f0e758685d0ee44cab544d053c8d65e
+      internalID: -465545572
       vertices: []
       indices: 
       edges: []
@@ -230,20 +254,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f43d4c3007d6d8428a39ede37aa4251
-      internalID: -1680016090
+      spriteID: bfdb420a876125e4dbb7b0ed7c168d5a
+      internalID: 1888398249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_Pickups_6
+      name: Speed_01
       rect:
         serializedVersion: 2
         x: 0
@@ -251,20 +275,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27bee6c53c6443a47b365d4ce7079de7
-      internalID: 1098306340
+      spriteID: ca7c8fafef22ce1479b64b58e699d395
+      internalID: -755546489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpaceInvaders_Pickups_7
+      name: Speed_02
       rect:
         serializedVersion: 2
         x: 16
@@ -272,14 +296,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c999c79e172634448ab1c4ded7f8fbae
-      internalID: 1088819040
+      spriteID: a94eeabb7d7bd0b4b910cd8c7aa6faf1
+      internalID: -318465483
       vertices: []
       indices: 
       edges: []
@@ -293,14 +317,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4665549991d7ccb4d84e344d8b10cf79
-      internalID: -70108180
+      spriteID: 46e08688659375e42aa4c91fb5aa0989
+      internalID: 276152003
       vertices: []
       indices: 
       edges: []
@@ -314,14 +338,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0115ee44f9a637b4e9d5cf37ee470c0e
-      internalID: -647591913
+      spriteID: 3c7f86dc97f9c054ab18258caf0b36e6
+      internalID: -146020618
       vertices: []
       indices: 
       edges: []
@@ -335,14 +359,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e90471b5215da384f9c8d319a01f0c30
-      internalID: -382323115
+      spriteID: 8c48c5aa9e1d687408db250081ba4144
+      internalID: 747193329
       vertices: []
       indices: 
       edges: []
@@ -356,14 +380,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 089e91b79bf9760499c5d1e82a9d7f22
-      internalID: -533573778
+      spriteID: 6732f5ba11b002e489226e47c97aac46
+      internalID: -981622045
       vertices: []
       indices: 
       edges: []
@@ -379,18 +403,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpaceInvaders_Pickups_6: 1098306340
-      Life_02: -647591913
-      Coin_04: -595199230
-      Coin_05: 768267208
-      SpaceInvaders_Pickups_7: 1088819040
-      Coin_03: -1207163371
-      Health_02: -533573778
-      Coin_06: -1680016090
-      Coin_02: -876929503
-      Coin_01: -1976282749
-      Health_01: -382323115
-      Life_01: -70108180
+      Speed_01: -755546489
+      Life_02: -146020618
+      Coin_04: 1658394931
+      Coin_05: -465545572
+      Speed_02: -318465483
+      Coin_03: 1254580021
+      Health_02: -981622045
+      Coin_06: 1888398249
+      Coin_02: 428582466
+      Coin_01: 817596402
+      Health_01: 747193329
+      Life_01: 276152003
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

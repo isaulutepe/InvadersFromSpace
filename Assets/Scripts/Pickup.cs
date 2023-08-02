@@ -4,9 +4,7 @@ using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
 {
-
     public float fallSpeed;
-
 
     void Update()
     {
@@ -22,4 +20,5 @@ public abstract class Pickup : MonoBehaviour
             PickMeUp();
         }
     }
+
 }

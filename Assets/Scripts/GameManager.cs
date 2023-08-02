@@ -6,12 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public GameObject[] allAlienSets;
     private GameObject currentSet;
-    private Vector2 spawnPosition = new Vector2(0, 2.26f);
+    private Vector2 spawnPos = new Vector2(0, 10);
+    
     public static GameManager instance;
 
     private void Awake()
     {
-        if (instance == null)
+        if(instance == null)
         {
             instance = this;
         }
@@ -20,22 +21,24 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Start()
+
+    void Start()
     {
         SpawnNewWave();
     }
-    public void SpawnNewWave()
+
+    public static void SpawnNewWave()
     {
-        instance.StartCoroutine(instance.SpawnWawe());
+        instance.StartCoroutine(instance.SpawnWave());
     }
-    IEnumerator SpawnWawe()
+
+    private IEnumerator SpawnWave()
     {
-        if (currentSet != null)
-        {
+        if(currentSet != null)
             Destroy(currentSet);
-        }
         yield return new WaitForSeconds(3);
-        currentSet = Instantiate(allAlienSets[Random.Range(0, allAlienSets.Length)], spawnPosition, Quaternion.identity);
+        currentSet = Instantiate(allAlienSets[Random.Range(0, allAlienSets.Length)],spawnPos, Quaternion.identity);
         UIManager.UpdateWave();
     }
+
 }

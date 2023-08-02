@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    private Queue<GameObject> pooledObject; //5 adet nesne olacak ve arka arkaya olacaklarý için b,r kuyruk oluþturduk
-    [SerializeField] private GameObject objectPrefab; //Havuzdaki obje-objeler
-    public int poolSize; //Havuz boyutu
+    private Queue<GameObject> pooledObject;
+    [SerializeField] private GameObject objectPrefab;
+    [SerializeField] private int poolSize;
+
     private void Awake()
     {
         pooledObject = new Queue<GameObject>();
@@ -17,11 +18,13 @@ public class ObjectPool : MonoBehaviour
             pooledObject.Enqueue(obj);
         }
     }
-    public GameObject GetPollObject()
+
+    public GameObject GetPooledObject()
     {
-        GameObject obj=pooledObject.Dequeue();
+        GameObject obj = pooledObject.Dequeue();
         obj.SetActive(true);
         pooledObject.Enqueue(obj);
         return obj;
     }
+
 }

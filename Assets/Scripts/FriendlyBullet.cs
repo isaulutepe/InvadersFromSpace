@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class FriendlyBullet : MonoBehaviour
 {
-    public float speed=5f;
-
-    private void Update()
+    private float speed = 10;
+    void Start()
     {
-        transform.Translate(Vector3.up* Time.deltaTime *   speed);
+        
     }
-
+    
+    void Update()
+    {
+        transform.Translate(Vector2.up * Time.deltaTime * speed);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -20,10 +22,11 @@ public class FriendlyBullet : MonoBehaviour
             collision.gameObject.GetComponent<Alien>().Kill();
             gameObject.SetActive(false);
         }
-        if (collision.gameObject.CompareTag("EnemyBullet"))
+        if (collision.gameObject.GetComponent("EnemyBullet"))
         {
             collision.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
     }
+
 }
