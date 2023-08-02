@@ -9,16 +9,16 @@ public class UIManager : MonoBehaviour
 {
     private static UIManager instance;
     
-    private TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText;
     private int score;
-    private TextMeshProUGUI hightScoreText;
+    public TextMeshProUGUI hightScoreText;
     private int hightScore;
-    private TextMeshProUGUI coinText;
-    private TextMeshProUGUI waveText;
+    public TextMeshProUGUI coinText;
+    public TextMeshProUGUI waveText;
     private int wave;
-    private Image[] liveSprites;
-    private Image healthBar;
-    private Sprite[] healthBars;
+    public Image[] liveSprites;
+    public Image healthBar;
+    public Sprite[] healthBars;
     //RGBA Deðerlerinin hepsine eriþerek kullanabilmek için color32 kullandýk.
     private Color32 active =new Color(1,1,1,1);
     private Color32 inactive = new Color(1, 1, 1, 0.25f);
@@ -35,17 +35,26 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public static void UpdateLives(int i)
+    public static void UpdateLives(int lives)
     {
-
+        //Aktif ve inacktif durumunu renklerle kontrol edeceðiz.
+        foreach (Image img in instance.liveSprites)
+        {
+            img.color = instance.inactive;
+        }
+        for (int i = 0; i < lives; i++)
+        {
+            instance.liveSprites[i].color = instance.active;
+        }
     }
     public static void UpdateHealthBar(int i)
     {
-
+        instance.healthBar.sprite = instance.healthBars[i];
     }
-    public static void UpdateScore()
+    public static void UpdateScore(int s)
     {
-
+        instance.score += s;
+        instance.scoreText.text=instance.score.ToString("000,000");
     }
     public static void UpdateHighScore()
     {
@@ -53,10 +62,12 @@ public class UIManager : MonoBehaviour
     }
     public static void UpdateWave()
     {
-
+        instance.wave++;
+        instance.waveText.text = instance.wave.ToString();
     }
     public static void UpdateCoins()
     {
+        instance.coinText.text=Inventory.currentCoins.ToString();
     }
 
 }

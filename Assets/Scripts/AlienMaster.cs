@@ -1,20 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class AlienMaster : MonoBehaviour
 {
-    [SerializeField] private ObjectPool pool = null;
-    [SerializeField] private ObjectPool motherShippool = null;
+    private ObjectPool pool = null;
+    private ObjectPool motherShippool = null;
     public GameObject bulletPrefab;
     private Vector3 horizontalMoveDistanece = new Vector3(0.05f, 0, 0);
     private Vector3 verticalMoveDistance = new Vector3(0, 0.15f, 0);
-    [SerializeField] private Player playerScript;
+    private Player playerScript;
     private float width;
-    //private const float MAX_LEFT = -2f;
-    //private const float MAX_RIGHT = 2f;
+    private const float MAX_LEFT = -4f;
+    private const float MAX_RIGHT = 4f;
     private const float MAX_MOVE_SPEED = 0.02F;
     public static List<GameObject> allAliens = new List<GameObject>(); //Bütün alienlarý bvir listede tutacaðýz
     private bool moveingRight;
@@ -28,11 +29,13 @@ public class AlienMaster : MonoBehaviour
     private float MotherShipTimer =60f;
     private const float MotherShipMinTime = 15f;
     private const float MotherShipMaxTime = 60f;
+    private const float START_Y = 1.7f;
+    private bool entering = true;
+
 
 
     private void Start()
     {
-        width = playerScript.width - 0.15f;
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Alien"))
         {
             allAliens.Add(obj);
@@ -40,19 +43,31 @@ public class AlienMaster : MonoBehaviour
     }
     private void Update()
     {
-        if (moveTimer <= 0)
+        if (entering)
         {
-            MoveEnemies();
+            transform.Translate(Vector2.down * Time.deltaTime * 10f);
+            if (transform.position.y<=START_Y)
+            {
+                entering = false;
+            }
         }
-        if (ShootTimer <= 0)
+        else
         {
-            Shoot();
+            if (moveTimer <= 0)
+            {
+                MoveEnemies();
+            }
+            if (ShootTimer <= 0)
+            {
+                Shoot();
+            }
+            if (MotherShipTimer <= 0)
+                SpawnMotherShip();
+            moveTimer -= Time.deltaTime;
+            ShootTimer -= Time.deltaTime;
+            MotherShipTimer -= Time.deltaTime;
         }
-        if(MotherShipTimer<= 0)
-            SpawnMotherShip();
-        moveTimer -= Time.deltaTime;
-        ShootTimer -= Time.deltaTime;
-        MotherShipTimer-= Time.deltaTime;
+     
     }
 
     private void Shoot()
@@ -77,7 +92,7 @@ public class AlienMaster : MonoBehaviour
             {
                 allAliens[i].transform.position -= horizontalMoveDistanece;
             }
-            if (allAliens[i].transform.position.x > width || allAliens[i].transform.position.x < -width)
+            if (allAliens[i].transform.position.x > MAX_RIGHT || allAliens[i].transform.position.x < MAX_LEFT)
             {
                 hitMax++;
             }

@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private Vector2 offScreanPos = new Vector2(0, -20f);
     private Vector2 startPos = new Vector2(0, -6.5f);
 
+    private float directionX;
     private void Awake()
     {
         cam = Camera.main;
@@ -31,6 +32,8 @@ public class Player : MonoBehaviour
         ShipStats.currentHealth = ShipStats.maxHealth;
         ShipStats.currentLifes = ShipStats.maxLifes;
         ShipStats.currentLifes = 3;
+        UIManager.UpdateHealthBar(ShipStats.currentHealth);
+        UIManager.UpdateLives(ShipStats.currentLifes);
     }
     private void Update()
     {
@@ -53,6 +56,27 @@ public class Player : MonoBehaviour
         }
 
 #endif
+        //Gyro sensor kullanýmý için yapýlan bir iþlem.(Telefonu saða sola yatýrarak hareket ettirmek için)
+        directionX = Input.acceleration.x;
+        //Debug.Log(directionX);
+        if (directionX <= -0.1f && transform.position.x > -width)
+        {
+            transform.Translate(Vector2.left * Time.deltaTime * ShipStats.shipSpeed);
+        }
+        if (directionX >= 0.1f && transform.position.x < width)
+        {
+            transform.Translate(Vector2.right * Time.deltaTime * ShipStats.shipSpeed);
+        }
+        //
+    }
+
+    //Ekrana týklandýðýnda ateþ etmek için yapýlmasý gerekenler
+    public void ShootButton()
+    {
+        if (!isShoting)
+        {
+            StartCoroutine(Shoot());
+        }
     }
     private IEnumerator Shoot()
     {
@@ -79,15 +103,20 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(2);
         ShipStats.currentHealth = ShipStats.maxHealth;
         transform.position = startPos;
+        UIManager.UpdateHealthBar(ShipStats.currentHealth);
+
     }
     private void TakeDamege()
     {
         ShipStats.currentHealth--;
-  
+
+        UIManager.UpdateHealthBar(ShipStats.currentHealth);
 
         if (ShipStats.currentHealth <= 0)
         {
             ShipStats.currentLifes--;
+            UIManager.UpdateLives(ShipStats.currentLifes);
+
             Debug.Log(ShipStats.currentLifes);
 
             if (ShipStats.currentLifes <= 0)
@@ -97,10 +126,32 @@ public class Player : MonoBehaviour
             else
             {
                 Debug.Log("Respawn");
-                StartCoroutine(Respawn());  
+                StartCoroutine(Respawn());
             }
         }
-
-
+    }
+    public void AddHealth()
+    {
+        if (ShipStats.currentHealth ==ShipStats.maxHealth)
+        {
+            UIManager.UpdateScore(250);
+        }
+        else
+        {
+            ShipStats.currentHealth++;
+            UIManager.UpdateHealthBar(ShipStats.currentHealth);
+        }
+    }
+    public void AddLife()
+    {
+        if (ShipStats.currentLifes == ShipStats.maxLifes)
+        {
+            UIManager.UpdateScore(1000);
+        }
+        else
+        {
+            ShipStats.currentLifes++;
+            UIManager.UpdateLives(ShipStats.currentLifes);
+        }
     }
 }

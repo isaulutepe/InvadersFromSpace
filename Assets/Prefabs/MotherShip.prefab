@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df26131cd85612d468b716d50afe881f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 0
 --- !u!114 &2323347508977890000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 200
   explotions: {fileID: 3061219060076233720, guid: 55643d4d8cc33324baecc2bebb63cb82, type: 3}
+  coinsPrefab: {fileID: 8066151700255083403, guid: 041416051c6a9604d86e9ddd8f4061e7, type: 3}
+  healthPrefab: {fileID: 9068084747852710624, guid: 2ebe1a493703ddc4a8233e30acc4df04, type: 3}
+  lifePrefab: {fileID: 344902067329504987, guid: f59905b594c292242899d5bcb5106d35, type: 3}
